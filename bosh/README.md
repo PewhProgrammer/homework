@@ -1,23 +1,19 @@
-# anynines Homework
+# Task Description
 
-This repository was created to help you to prepare for an interview or work sample.
+In this readme, i will describe the given tasks and how I managed to solve it with respect to my though process.
 
-If you do not understand a step, please contact human resources.
+# What is BOSH?
 
-## BOSH Introduction
+[TODO]
 
-Read the [introduction to BOSH](https://bosh.io/docs#intro).
+# What is bosh-cli?
 
-## Setup BOSH Lite
+bosh-cli is the main tool to operate bosh through terminal commands. As of now, we currently have CLI v2 which introduces statelessness and hypentation on single commands - an improvement to its predecessor version. The core functionality are [TODO]
 
-Go to [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment) and install BOSH Lite on your local machine.
+# How did I install and run BOSH Lite?
 
-## Create nginx BOSH Release
+Since I am natively developing on Windows, I tried to find a solution to installing BOSH since some commands - such as bosh create-env - were not functional on Windows (as of this writing). WSL lets you run a Linux environment -- including command-line tools and applications -- directly on Windows, without the overhead of a traditional virtual machine or dualboot setup. In here, I was able to install bosh-cli using homebrew and virtualbox on an ubuntu 20.04 LTS distro. The bosh create-env command worked.
 
-Read the section [Using BOSH to package and distribute software](https://bosh.io/docs#release).
-Then create a BOSH release for nginx. It should display an empty page that is protected by basic authentication.
-Please fork this repository into your GitHub workspace and push your source code to the new repository.
+https://medium.com/solacedotcom/yes-you-can-run-bosh-lite-v2-on-windows-10-b55f679640b9
 
-There should be a sample deployment file (e.g. *examples/nginx.yml*) that we can execute to test your BOSH release.
-Please provide a README.md (markdown) in the top directory on how to test your BOSH release with `curl`.
-
+However, VirtualBox does not run flawlessly on WSL because it does not support run-level functionality. After many attempts, I have run out of disk space on my laptop so I decided to use VMs at the end. Maybe, some day, I will return to WSL or fully turn to linux systems since it seems to be the more feasible approach.

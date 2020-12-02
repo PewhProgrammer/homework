@@ -1,11 +1,11 @@
 # Anynines Applicant Homework 
 
-This repository contains two kinds of homework for applicants.
+In context of a job application, the initial state of this repository serves as a starting point for showcasing technical skills and understanding of distributed systems using bosh/kubernetes.
 
 ## Bosh Homework
 
-Template for a bosh based homework.
+The task is to create a bosh release for nginx.
 
 ## Kubernetes Homework
 
-Template for a kubernetes based homework.
+The task is to create a deployment with a containerized go application and kubernetes cluster.
