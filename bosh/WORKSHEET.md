@@ -26,9 +26,11 @@ However, VirtualBox does not run flawlessly on WSL because it does not support r
 
 ## What is the typical workflow of Bosh?
 
-1. Bosh receives either stemcells or releases. This data describes the deployed systems in respect to OS, jobs and running softwares.
+Before any deployment, we will have to spin-up the Director VM which has its very own stemcell and packages. The director is responsible for the orchestration and manages the agents.
+
+1. Bosh receives stemcells and releases. This data describes the deployed systems in respect to OS, jobs and running softwares.
 2. Bosh deploys the software systems using a deployment manifest (.yml). Several instances are deployed progressively.
-3. Bosh monitors the instances for malfunctions continouusly. It is able to restart instances
+3. Bosh monitors the instances for malfunctions continuously. It is able to restart instances
 4. Bosh can be told to apply a rolling-update using the deployment manifest.
 
 ## What happens upon recovery?
@@ -41,6 +43,8 @@ On a usual deployment, BOSH deploys itself. When we start a deployment, we usual
 [Reference](https://bosh.io/docs/deploying-step-by-step/)
 
 # Reminder Terminology
+
+Interesting and important notions or items will be listed here.
 
 ## Manifest, Stemcell, Release
 
@@ -56,7 +60,7 @@ Defined by --state=<name>.json in a bosh command.
 
 # Bosh CLI-v2 Commands
 
-Here is a list of commands i have encountered and used during the homework. This shall merely function as a look-up list when needed.
+Here is a list of commands I have compiled which was also used during the homework. This shall merely function as a look-up list when needed.
 
 ```console
 user@workspace:~$ bosh create-env bosh.yml --state=bosh.json
@@ -88,3 +92,9 @@ user@workspace:~$ bosh envs
 ```
 
 List all available aliases on the host
+
+```console
+user@workspace:~$ bosh -e vbox -d nginx ssh nginx
+```
+
+SSH Into VM

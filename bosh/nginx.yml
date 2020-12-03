@@ -4,6 +4,8 @@ name: nginx # unique id for deployments
 releases:
 - name: nginx
   version: latest
+templates:
+  pre-start.erb: bin/pre-start
 
 stemcells:
 # Centos 3421.11 _appears_ not to work under BOSH Lite
@@ -42,11 +44,13 @@ instance_groups:
           server {
             server_name _; # invalid value which will never trigger on a real hostname.
             listen *:80;
-            # FIXME: replace all occurrences of 'example.com' with your server's FQDN
-            access_log /var/vcap/sys/log/nginx/example.com-access.log;
-            error_log /var/vcap/sys/log/nginx/example.com-error.log;
             root /var/vcap/data/nginx/document_root;
             index index.shtml;
+            location / {
+              index  index.shtml;
+              auth_basic "Restricted. Please enter your credentials";  #For Basic Auth
+              auth_basic_user_file /etc/nginx/.htpasswd;  #For Basic Auth
+            }
           }
         }
       pre_start: |
@@ -58,7 +62,7 @@ instance_groups:
           cat > index.shtml <<EOF
             <html><head><title>BOSH on IPv6</title>
             </head><body>
-            <h2>Welcome. This page has been served by nginx which is hosted on a BOSH deployment group.</h2>
+            <h2>Welcome. v1.1 Thinh Tran</h2>
             <h2>
             My hostname/IP: <b><!--# echo var="HTTP_HOST" --></b><br />
             Your IP: <b><!--# echo var="REMOTE_ADDR" --></b>
@@ -66,6 +70,9 @@ instance_groups:
             </body></html>
         EOF
         fi
+        mkdir -p /etc/nginx
+        cd /etc/nginx
+        printf "admin:$(openssl passwd -crypt anynines)\n" >> .htpasswd
 update:
   canaries: 1
   max_in_flight: 1

@@ -10,15 +10,16 @@ Installation of BOSH Lite on Ubuntu 18.04 LTS. Create your first environment and
 
 ### Step 1
 
-Create a cloud config with all the needed information specific to the infrastructure such as availability zones and network data. I have used some example files from the official bosh deployments repository and adjusted some parameters. 
-
-### Step 2
-
-Upload your nginx release from the bosh.io official release page. There are two ways to do it: either through the deployment manifest or cli command.
+Create a cloud config with all the needed information specific to the infrastructure such as availability zones and network data. I have used some example files from the official bosh deployments repository and adjusted some parameters. Please use this during your deployment as I have reserved some IP addresses.
 
 ```console
 user@workspace:~$ bosh -e vbox update-cloud-config cloud-config.yml
 ```
+
+
+### Step 2
+
+Upload your nginx release from the bosh.io official release page. There are two ways to do it: either through the deployment manifest or cli command.
 
 CLI:
 
@@ -40,8 +41,23 @@ user@workspace:~$ bosh -e vbox upload-stemcell --sha1 c207c26c0528f2c4709317200a
 
 ### Step 4
 
-After uploading the release, we are going to the deployment.
+After uploading the release, we are going for the deployment.
 
 ```console
 user@workspace:~$ bosh -e vbox -d nginx deploy ./nginx.yml
+```
+
+
+### Final Step
+
+Upon verifying that everything runs smoothly, we can now try to send a curl GET request to our running nginx server. In our small sample project, I have exposed the port 192.168.50.6. However, we will need to route the private IP address from inside the BOSH VM to make it accessible for the host machine. Refer to the official [bosh lite documentation ](https://bosh.io/docs/bosh-lite/#install). I have used the linux variant. Check with the following command:
+
+```console
+user@workspace:~$ curl -i 192.168.192.201
+```
+
+Now we can add [basic authentication](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/) to our nginx server. Here, we will need to configure a (pre-script)[https://bosh.io/docs/pre-start/] which runs before the actual job. The pre-script will handle the creation of a auth file which nginx will use for its basic auth. To test the configuration:
+
+```console
+user@workspace:~$ curl -i -u admin:anynines 192.168.192.201
 ```
