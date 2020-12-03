@@ -1,0 +1,36 @@
+# This has been taken fbn2Winv65VfGRnKoMLm2Da
+# https://github.com/cloudfoundry/bosh-deployment/blob/master/warden/cloud-config.yml
+
+
+azs:
+- name: z1
+- name: z2
+- name: z3
+
+vm_types:
+- name: default
+  cloud_properties:
+    cpu: 2
+    ram: 1024
+    disk: 3240
+
+disk_types:
+- name: default
+  disk_size: 3000
+
+networks:
+- name: pewhnet
+  type: manual
+  subnets:
+  - range: 192.168.192.0/24
+    gateway: 192.168.192.1
+    azs: [z1, z2, z3]
+    dns: [8.8.8.8]
+    reserved: [192.168.192.1-192.168.192.200, 192.168.192.220-192.168.192.254] # leave a gap for bosh
+
+compilation:
+  workers: 2
+  reuse_compilation_vms: true
+  az: z1
+  vm_type: default
+  network: pewhnet
