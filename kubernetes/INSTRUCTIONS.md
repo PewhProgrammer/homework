@@ -11,7 +11,7 @@ The app is a simple CRUD todo app which uses PostgreSQL as a
 database to store the todos. It's possible to build the app without a connected db. The app should start up, but accessing any route will lead to an error.
 The PostgreSQL connection details should be stored in environment variables of the container -> investigate the code for more details (just search for `POSTGRESQL_`).
 
-Your **frist task** is to containerize the go app.
+Your **first task** is to containerize the go app.
 Write the necessary code in the empty Dockerfile you will find in the `docker/` folder.
 
 **Bonus**:<br/>
