@@ -18,7 +18,7 @@ Write the necessary code in the empty Dockerfile you will find in the `docker/` 
 The container image that runs your binary should be small, but we don't want to lose convenience during the building phase of the app in the container.
 Therefore you should use two stages in your dockerfile.<br />
 The first stage will be the build-stage which uses the `golang:latest` image as a base.<br/>
-And the Second and final stage should be based on the `apline:latest` image.
+And the Second and final stage should be based on the `alpine:latest` image.
 
 ## 2. Deploy the go app to kubernetes
 
