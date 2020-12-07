@@ -4,8 +4,6 @@ In this documentation, I will describe all my tasks and what I have learned goin
 
 ## What is BOSH?
 
-[TODO]
-
 BOSH is designed/inspired by the idea of Google's scale and control (BORG). It provides an instance of managing a cluster of VMs by using components like CPI, Directors, Agents and embedded OS. It allows enterprises to upgrade their critical infrastructure by applying rolling-update methods through their APIs. From the security aspect, we are able to define lifespans which enables automatic recreation of VMs/Secrets/Credentials and thus reduces the possibility of malwares/malfunctions.
 
 ## What does CPI stand for? 
@@ -14,7 +12,7 @@ Cloud Provider Interface is a collection of 15 API that enables provisioning of 
 
 ## What is bosh-cli?
 
-bosh-cli is the main tool to operate bosh through terminal commands. As of now, we currently have CLI v2 which introduces statelessness and hypentation on single commands - an improvement to its predecessor version. The core functionality are [TODO]
+bosh-cli is the main tool to operate bosh through terminal commands. As of now, we currently have CLI v2 which introduces statelessness and hypentation on single commands - an improvement to its predecessor version.
 
 ## How did I install and run BOSH Lite?
 
@@ -28,7 +26,7 @@ However, VirtualBox does not run flawlessly on WSL because it does not support r
 
 Before any deployment, we will have to spin-up the Director VM which has its very own stemcell and packages. The director is responsible for the orchestration and manages the agents.
 
-1. Bosh receives stemcells and releases. This data describes the deployed systems in respect to OS, jobs and running softwares.
+1. Bosh receives stemcells and releases from the operator. This data describes the to-be deployed system in respect to OS, jobs and running softwares.
 2. Bosh deploys the software systems using a deployment manifest (.yml). Several instances are deployed progressively.
 3. Bosh monitors the instances for malfunctions continuously. It is able to restart instances
 4. Bosh can be told to apply a rolling-update using the deployment manifest.
@@ -57,6 +55,8 @@ Interesting and important notions or items will be listed here.
 The deployment state encapsulates various information such as disks, stemcells and releases. It also describes various IDs - such as the director VM id. It is primarily used to create or start an environment.
 
 Defined by --state=<name>.json in a bosh command.
+
+If something is wrong (such as missing vms), you can remove this file for recreation.
 
 # Bosh CLI-v2 Commands
 
@@ -98,3 +98,10 @@ user@workspace:~$ bosh -e vbox -d nginx ssh nginx
 ```
 
 SSH Into VM
+
+
+```console
+user@workspace:~$ bosh vms --vitals
+```
+
+Check vitals of your deployment, like Persistent Disk Usage.

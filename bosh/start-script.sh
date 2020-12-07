@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script is used to spin up a new environment
+
 echo "Logging into environment"
 
 export BOSH_CLIENT=admin
