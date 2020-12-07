@@ -17,7 +17,7 @@ Write the Dockerfile with multi-stage (bonus) pipeline given the images from the
 Build the docker image out of the dockerfile. 
 
 ```console
-docker build --rm -t go-multi-stage .
+docker build --rm -t go-multi-stage -f dockerfile.dev
 ```
 
 ### Step 4
