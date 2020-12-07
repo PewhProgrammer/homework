@@ -70,7 +70,7 @@ Bosh creates an environment given input a deployment manifest and a deployment s
 
 
 ```console
-user@workspace:~$ bosh - vbox -d nginx vms
+user@workspace:~$ bosh -e vbox -d nginx vms
 ```
 
 Display the deployed vms for my nginx release.

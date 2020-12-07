@@ -41,7 +41,7 @@ user@workspace:~$ bosh -e vbox upload-stemcell --sha1 c207c26c0528f2c4709317200a
 
 ### Step 4
 
-After uploading the release, we are going for the deployment.
+After uploading the release and the respective stemcell, we are going for the deployment.
 
 ```console
 user@workspace:~$ bosh -e vbox -d nginx deploy ./nginx.yml
@@ -56,6 +56,7 @@ Upon verifying that everything runs smoothly, we can now try to send a curl GET 
 user@workspace:~$ curl -i 192.168.192.201
 ```
 
+Dont forget to local route to access the address!
 Now we can add [basic authentication](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/) to our nginx server. Here, we will need to configure a (pre-script)[https://bosh.io/docs/pre-start/] which runs before the actual job. The pre-script will handle the creation of a auth file which nginx will use for its basic auth. To test the configuration:
 
 ```console

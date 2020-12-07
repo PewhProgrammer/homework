@@ -1,75 +1,75 @@
 {
-    "director_id": "a15af5e2-9616-467c-770d-35903dd739bb",
-    "installation_id": "225a77fd-88f9-47ed-79ca-487d4a504752",
-    "current_vm_cid": "vm-2e76c3ce-dd86-4188-4c29-ff04d77f7529",
-    "current_stemcell_id": "313b849e-8280-45a8-5e77-274b3e0374bb",
-    "current_disk_id": "68dbcc0d-9772-4655-4d7b-67912c51ec36",
+    "director_id": "3e0caefb-99e2-4cf2-49de-b0008e3cb6de",
+    "installation_id": "680372eb-8d24-4a65-7999-95e60dfc7d6f",
+    "current_vm_cid": "vm-697c28e4-f230-42f3-49f4-a005d3c36f40",
+    "current_stemcell_id": "75bf1d32-56db-482d-65dc-05ce20f622dd",
+    "current_disk_id": "85776d96-289c-4f7e-4fa0-498a87f981e1",
     "current_release_ids": [
-        "ba5f6681-1c72-4e14-6f09-7e8f3cf4c755",
-        "01e81be3-4483-44d0-6ff4-89d9db1341cb",
-        "2067ed3e-201a-4620-44dc-74a251c473c3",
-        "15e8606c-3ef8-45b2-5326-e20c19dd2551",
-        "04219ac2-702a-495c-7996-48c5d03a5bfd",
-        "5c845497-0a16-408c-6653-d15e724f92e0",
-        "d0b41942-bc69-40d2-4177-dda7185d3bd0",
-        "6c99e566-1980-4805-65a8-da0818be7233"
+        "64827fd0-ca5f-4359-5781-9b070b27b7c6",
+        "91ecc0f4-5443-40d5-6032-1744925b5eea",
+        "68440321-7058-4c26-7ba9-06148e732221",
+        "8328e900-cd44-47d1-718a-db0c8f327b1e",
+        "55e48f7c-3ad0-415c-6b51-bb84a699120e",
+        "c78b0dde-e76e-4d9c-7586-6378c387926d",
+        "5e0c4d24-f6e2-4daf-5708-8d9ebdc344ae",
+        "a89d5a55-93e7-4e24-63b1-fa4861e07c27"
     ],
     "current_manifest_sha": "64eddcc7bc81fe87869ff1b68a157955087fd192cfc482df3ab1bcb8a6f314ec79f79462d1ccdb5fb2926ae012a66294bdd93bbcf5751e63bc60de7d324ecf1c",
     "disks": [
         {
-            "id": "68dbcc0d-9772-4655-4d7b-67912c51ec36",
-            "cid": "disk-4ba62408-b125-4947-5151-0c86b6612b39",
+            "id": "85776d96-289c-4f7e-4fa0-498a87f981e1",
+            "cid": "disk-6d445113-eeb5-4e73-6ade-1622d927631a",
             "size": 65536,
             "cloud_properties": {}
         }
     ],
     "stemcells": [
         {
-            "id": "313b849e-8280-45a8-5e77-274b3e0374bb",
+            "id": "75bf1d32-56db-482d-65dc-05ce20f622dd",
             "name": "bosh-vsphere-esxi-ubuntu-xenial-go_agent",
             "version": "621.93",
             "api_version": 3,
-            "cid": "sc-9a917e25-96da-4247-6f14-4b82fe525545"
+            "cid": "sc-8509bd18-b300-4f9a-4271-9bdcfa8715f6"
         }
     ],
     "releases": [
         {
-            "id": "ba5f6681-1c72-4e14-6f09-7e8f3cf4c755",
+            "id": "64827fd0-ca5f-4359-5781-9b070b27b7c6",
             "name": "bosh",
             "version": "271.2.0"
         },
         {
-            "id": "01e81be3-4483-44d0-6ff4-89d9db1341cb",
+            "id": "91ecc0f4-5443-40d5-6032-1744925b5eea",
             "name": "bpm",
             "version": "1.1.9"
         },
         {
-            "id": "2067ed3e-201a-4620-44dc-74a251c473c3",
+            "id": "68440321-7058-4c26-7ba9-06148e732221",
             "name": "bosh-virtualbox-cpi",
             "version": "0.2.0"
         },
         {
-            "id": "15e8606c-3ef8-45b2-5326-e20c19dd2551",
+            "id": "8328e900-cd44-47d1-718a-db0c8f327b1e",
             "name": "garden-runc",
             "version": "1.19.16"
         },
         {
-            "id": "04219ac2-702a-495c-7996-48c5d03a5bfd",
+            "id": "55e48f7c-3ad0-415c-6b51-bb84a699120e",
             "name": "bosh-warden-cpi",
             "version": "41"
         },
         {
-            "id": "5c845497-0a16-408c-6653-d15e724f92e0",
+            "id": "c78b0dde-e76e-4d9c-7586-6378c387926d",
             "name": "os-conf",
             "version": "22.1.0"
         },
         {
-            "id": "d0b41942-bc69-40d2-4177-dda7185d3bd0",
+            "id": "5e0c4d24-f6e2-4daf-5708-8d9ebdc344ae",
             "name": "uaa",
             "version": "74.29.0"
         },
         {
-            "id": "6c99e566-1980-4805-65a8-da0818be7233",
+            "id": "a89d5a55-93e7-4e24-63b1-fa4861e07c27",
             "name": "credhub",
             "version": "2.9.0"
         }
